@@ -6,10 +6,15 @@
   var c = this;
 	c.selectItem = function(idx) {
 		var id = c.data.notes[idx].sys_id;
+		c.notePos = idx;
 		console.log('Note ID: '+id);
 		$rootScope.noteID = id;
 		$rootScope.$emit('selectNote', id);
 	}
+	$rootScope.$on('updateNote', function(event, data){
+			c.data.notes[c.notePos].title = data.title;
+			c.data.notes[c.notePos].note = data.note;
+	});
 };]]></client_script>
         <controller_as>c</controller_as>
         <css/>

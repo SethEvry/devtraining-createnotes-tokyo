@@ -21,7 +21,7 @@
 			noteBody: c.data.note,
 			noteTitle: c.data.title
 		}).then(function(r){
-			$rootScope.emit('updateNote');
+			$rootScope.$emit('updateNote', c.data);
 		})
 	}
 };]]></client_script>
